@@ -14,6 +14,54 @@
       "loyalty": "SPAR plus kartica",
       "reviewStatus": "approved",
       "reviewedBy": "Ročni pregled kataloga 46/26"
+    },
+    {
+      "id": "eurospin-drobtine-20261112",
+      "name": "Kruhove drobtine Tre Mulini",
+      "quantity": "500 g",
+      "price": 0.75,
+      "unitPrice": "1,50 €/kg",
+      "store": "Eurospin",
+      "validFrom": "2026-11-12",
+      "validUntil": "2026-11-18",
+      "checkedAt": "2026-11-13",
+      "sourceUrl": "https://www.eurospin.si/akcije/",
+      "region": "Slovenija",
+      "loyalty": "Na strani ponudbe pogoj kartice ni naveden",
+      "reviewStatus": "approved",
+      "reviewedBy": "Pregled uradne strani Eurospin 13. 11. 2026"
+    },
+    {
+      "id": "eurospin-nektar-20261112",
+      "name": "Pomarančni nektar Puertosol",
+      "quantity": "2 l",
+      "price": 1.25,
+      "unitPrice": "0,63 €/l",
+      "store": "Eurospin",
+      "validFrom": "2026-11-12",
+      "validUntil": "2026-11-18",
+      "checkedAt": "2026-11-13",
+      "sourceUrl": "https://www.eurospin.si/akcije/",
+      "region": "Slovenija",
+      "loyalty": "Na strani ponudbe pogoj kartice ni naveden",
+      "reviewStatus": "approved",
+      "reviewedBy": "Pregled uradne strani Eurospin 13. 11. 2026"
+    },
+    {
+      "id": "eurospin-pletenka-20261112",
+      "name": "Pletenka s sezamom",
+      "quantity": "80 g",
+      "price": 0.24,
+      "unitPrice": "3,00 €/kg",
+      "store": "Eurospin",
+      "validFrom": "2026-11-12",
+      "validUntil": "2026-11-18",
+      "checkedAt": "2026-11-13",
+      "sourceUrl": "https://www.eurospin.si/akcije/",
+      "region": "Slovenija",
+      "loyalty": "Na strani ponudbe pogoj kartice ni naveden",
+      "reviewStatus": "approved",
+      "reviewedBy": "Pregled uradne strani Eurospin 13. 11. 2026"
     }
   ]
 }
