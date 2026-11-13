@@ -55,3 +55,12 @@ jobs:
           echo 'Obstojece ponudbe niso spremenjene.' >> "$GITHUB_STEP_SUMMARY"
           echo 'Status: preverjanje ni uspelo, potreben je ponovni poskus.' >> "$GITHUB_STEP_SUMMARY"
           echo '::warning::SPAR source unavailable; offers not verified.'
+
+      - name: Sporoci nedostopen vir
+        if: steps.check.outcome != 'success'
+        run: |
+          echo '### SPAR - vir ni bil dosegljiv' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Podatkov o cenah ni bilo mogoce preveriti.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Obstojece ponudbe niso spremenjene.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Status: preverjanje ni uspelo, potreben je ponovni poskus.' >> "$GITHUB_STEP_SUMMARY"
+          echo '::warning::SPAR source unavailable; offers not verified.'
