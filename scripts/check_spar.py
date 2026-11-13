@@ -97,9 +97,7 @@ def main():
 
     print(json.dumps(result, ensure_ascii=False))
 
-    if result["status"] == "unavailable":
-        print("WARNING: SPAR source unavailable; no offers verified.")
-    elif result["status"] == "error":
+    if result["status"] != "available":
         raise SystemExit(1)
 
 
