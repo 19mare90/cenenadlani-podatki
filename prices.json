@@ -1,5 +1,17 @@
 {
-  "schemaVersion": 1,
-  "updatedAt": "2026-11-13T15:00:00Z",
-  "offers": []
+  "offers": [
+    {
+      "id": "test-mleko-001",
+      "name": "TEST – Mleko 3,5 % (ni prava ponudba)",
+      "quantity": "1 l",
+      "store": "Testna trgovina",
+      "price": 0.99,
+      "unitPrice": "0,99 €/l",
+      "validUntil": "2026-11-30",
+      "checkedAt": "2026-11-13",
+      "sourceUrl": "https://example.com/test",
+      "region": "Slovenija",
+      "loyalty": "Brez kartice"
+    }
+  ]
 }
