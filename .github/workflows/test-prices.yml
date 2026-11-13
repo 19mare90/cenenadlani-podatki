@@ -1,0 +1,21 @@
+name: Test price publication safety
+on:
+  push:
+    paths:
+      - 'scripts/build_prices.py'
+      - 'tests/**'
+      - '.github/workflows/test-prices.yml'
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run safety tests
+        run: python -m unittest discover -s tests -v
