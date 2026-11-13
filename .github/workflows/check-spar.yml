@@ -1,0 +1,44 @@
+name: CeneNaDlani - spremljaj katalog SPAR
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 6 * * *' # UTC; local time varies with daylight saving
+permissions:
+  contents: write
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check official catalogue index
+        id: check
+        continue-on-error: true
+        run: python scripts/check_spar.py
+      - name: Save result as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: spar-monitor-result
+          path: spar_monitor_result.json
+          if-no-files-found: warn
+      - name: Commit baseline only when available
+        if: steps.check.outcome == 'success'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/spar_catalog_state.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Update SPAR catalogue index baseline'
+            git push
+          fi
+      - name: Report inaccessible source
+        if: steps.check.outcome != 'success'
+        run: |
+          echo 'SPAR source unavailable; no inference about offers.' >> "$GITHUB_STEP_SUMMARY"
+          exit 1
