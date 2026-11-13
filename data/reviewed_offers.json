@@ -1,21 +1,6 @@
 {
   "offers": [
     {
-      "id": "spar-barcaffe-classic-100g-4626",
-      "name": "Kava Barcaffè Classic, mleta pražena",
-      "quantity": "100 g",
-      "store": "SPAR",
-      "price": 1.89,
-      "unitPrice": "18,90 €/kg",
-      "validUntil": "2026-11-24",
-      "checkedAt": "2026-11-13",
-      "sourceUrl": "https://www.spar.si/letak/katalog-4626",
-      "region": "Slovenija",
-      "loyalty": "SPAR plus kartica",
-      "reviewStatus": "approved",
-      "reviewedBy": "Ročni pregled kataloga 46/26"
-    },
-    {
       "id": "eurospin-drobtine-20261112",
       "name": "Kruhove drobtine Tre Mulini",
       "quantity": "500 g",
