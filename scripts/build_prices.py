@@ -1,8 +1,8 @@
 import json
-import os
-from datetime import date, datetime, timedelta, timezone
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from urllib.parse import urlparse
+from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 INPUT = ROOT / 'data' / 'reviewed_offers.json'
@@ -21,7 +21,7 @@ def valid_source(url):
         return False
 
 def main():
-    today = datetime.now(timezone.utc).date()
+    today = datetime.now(ZoneInfo("Europe/Ljubljana")).date()
     data = json.loads(INPUT.read_text(encoding='utf-8'))
     if not isinstance(data, dict) or not isinstance(data.get('offers'), list):
         raise ValueError('Input must be object with offers array')
@@ -43,11 +43,12 @@ def main():
             until = date.fromisoformat(o['validUntil'])
             if checked > today or checked < today - timedelta(days=7):
                 raise ValueError('check date not within last 7 days')
-            if until < today or until < checked:
+            start = date.fromisoformat(o['validFrom']) if 'validFrom' in o else checked
+            if start > today or until < max(today, checked, start):
                 raise ValueError('expired or inconsistent validity')
             if not valid_source(o['sourceUrl']):
                 raise ValueError('source must be official HTTPS merchant domain')
-            if o.get('reviewStatus') != 'approved' or not isinstance(o.get('reviewedBy'), str) or not o['reviewedBy'].strip():
+            if o.get('publishable', True) is not True or o.get('reviewStatus') != 'approved' or not isinstance(o.get('reviewedBy'), str) or not o['reviewedBy'].strip():
                 raise ValueError('not explicitly reviewed')
             # Review is a human assertion; this script cannot independently verify a merchant's live price.
             output.append({k: o[k] for k in required + ['price']})

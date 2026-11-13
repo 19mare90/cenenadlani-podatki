@@ -3,7 +3,7 @@ import importlib.util
 import json
 import tempfile
 import unittest
-from datetime import date, timedelta
+from datetime import datetime, timedelta
 from pathlib import Path
 from unittest.mock import patch
 
@@ -14,7 +14,7 @@ spec.loader.exec_module(build)
 
 class PublicationSafetyTests(unittest.TestCase):
     def offer(self):
-        today = date.today()
+        today = datetime.now(build.ZoneInfo("Europe/Ljubljana")).date()
         return dict(id="test-1", name="Test item", quantity="1 l", store="SPAR",
                     price=1.25, unitPrice="1,25 €/l",
                     validUntil=(today + timedelta(days=2)).isoformat(),
@@ -41,7 +41,7 @@ class PublicationSafetyTests(unittest.TestCase):
 
     def test_expired_is_not_published(self):
         offer = self.offer()
-        offer["validUntil"] = (date.today() - timedelta(days=1)).isoformat()
+        offer["validUntil"] = (datetime.now(build.ZoneInfo("Europe/Ljubljana")).date() - timedelta(days=1)).isoformat()
         self.assertEqual(self.publish([offer]), [])
 
     def test_nonofficial_source_is_not_published(self):
@@ -51,7 +51,17 @@ class PublicationSafetyTests(unittest.TestCase):
 
     def test_future_check_is_not_published(self):
         offer = self.offer()
-        offer["checkedAt"] = (date.today() + timedelta(days=1)).isoformat()
+        offer["checkedAt"] = (datetime.now(build.ZoneInfo("Europe/Ljubljana")).date() + timedelta(days=1)).isoformat()
+        self.assertEqual(self.publish([offer]), [])
+
+    def test_future_offer_is_not_published(self):
+        offer = self.offer()
+        offer["validFrom"] = offer["validUntil"]
+        self.assertEqual(self.publish([offer]), [])
+
+    def test_explicitly_nonpublishable_offer_is_excluded(self):
+        offer = self.offer()
+        offer["publishable"] = False
         self.assertEqual(self.publish([offer]), [])
 
     def test_duplicate_id_is_not_published_twice(self):
