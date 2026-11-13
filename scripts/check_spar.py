@@ -7,7 +7,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.request import Request, urlopen
 
-URL = 'https://www.spar.si/letak'
+URL = 'https://www.spar.si/letak/katalog-4626'
 STATE = Path('data/spar_catalog_state.json')
 OUTPUT = Path('spar_monitor_result.json')
 
