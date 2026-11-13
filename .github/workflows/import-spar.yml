@@ -1,0 +1,25 @@
+name: SPAR PDF - prepare review candidates
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install PDF parser
+        run: pip install -r requirements-spar-import.txt
+      - name: Extract candidates for manual review
+        run: |
+          test -f input/spar_katalog.pdf || { echo 'Missing input/spar_katalog.pdf'; exit 1; }
+          python scripts/import_spar_pdf.py input/spar_katalog.pdf
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: spar-review-candidates
+          path: data/spar_prices.json
+          if-no-files-found: warn
