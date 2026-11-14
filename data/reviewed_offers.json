@@ -79,6 +79,36 @@
       "checkedAt": "2026-11-14",
       "validFrom": "2026-11-12",
       "validUntil": "2026-11-18"
+    },
+    {
+      "id": "tus-milka-nougat-20261114",
+      "name": "Mlečna čokolada Milka Nut & Nougat",
+      "quantity": "300 g",
+      "price": 4.39,
+      "unitPrice": "14,63 €/kg",
+      "store": "Tuš",
+      "region": "Celje – Planet Tuš",
+      "loyalty": "Pogoj kartice pri ponudbi ni naveden",
+      "sourceUrl": "https://www.tus.si/aktualno/akcijska-ponudba/",
+      "reviewStatus": "approved",
+      "reviewedBy": "Pregled uradne akcijske ponudbe za Planet Tuš Celje",
+      "checkedAt": "2026-11-14",
+      "validUntil": "2026-11-17"
+    },
+    {
+      "id": "tus-milka-oreo-20261114",
+      "name": "Mlečna čokolada Milka Oreo",
+      "quantity": "300 g",
+      "price": 4.39,
+      "unitPrice": "14,63 €/kg",
+      "store": "Tuš",
+      "region": "Celje – Planet Tuš",
+      "loyalty": "Pogoj kartice pri ponudbi ni naveden",
+      "sourceUrl": "https://www.tus.si/aktualno/akcijska-ponudba/",
+      "reviewStatus": "approved",
+      "reviewedBy": "Pregled uradne akcijske ponudbe za Planet Tuš Celje",
+      "checkedAt": "2026-11-14",
+      "validUntil": "2026-11-17"
     }
   ]
 }
