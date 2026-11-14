@@ -1,0 +1,46 @@
+{
+  "products": [
+    {
+      "name": "Kruhove drobtine Tre Mulini",
+      "quantity": "500 g",
+      "store": "Eurospin",
+      "sourceUrl": "https://www.eurospin.si/akcije/"
+    },
+    {
+      "name": "Pomarančni nektar Puertosol",
+      "quantity": "2 l",
+      "store": "Eurospin",
+      "sourceUrl": "https://www.eurospin.si/akcije/"
+    },
+    {
+      "name": "Pletenka s sezamom",
+      "quantity": "80 g",
+      "store": "Eurospin",
+      "sourceUrl": "https://www.eurospin.si/akcije/"
+    },
+    {
+      "name": "Pomaranče",
+      "quantity": "2 kg",
+      "store": "Lidl",
+      "sourceUrl": "https://www.lidl.si/c/super-ponudba-od-cetrtka/a10106935"
+    },
+    {
+      "name": "Svež svinjski kare",
+      "quantity": "1 kg",
+      "store": "Lidl",
+      "sourceUrl": "https://www.lidl.si/c/super-ponudba-od-cetrtka/a10106935"
+    },
+    {
+      "name": "Mlečna čokolada Milka Nut & Nougat",
+      "quantity": "300 g",
+      "store": "Tuš",
+      "sourceUrl": "https://www.tus.si/aktualno/akcijska-ponudba/"
+    },
+    {
+      "name": "Mlečna čokolada Milka Oreo",
+      "quantity": "300 g",
+      "store": "Tuš",
+      "sourceUrl": "https://www.tus.si/aktualno/akcijska-ponudba/"
+    }
+  ]
+}
