@@ -6,6 +6,7 @@ from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parents[1]
 INPUT = ROOT / 'data' / 'reviewed_offers.json'
+PRODUCTS = ROOT / 'data' / 'products.json'
 OUTPUT = ROOT / 'prices.json'
 ALLOWED = {
     'mercator.si', 'spar.si', 'tus.si', 'lidl.si', 'hofer.si',
@@ -55,7 +56,18 @@ def main():
             seen.add(o['id'])
         except (ValueError, TypeError) as exc:
             print(f'SKIP {idx} ({o.get("id", "unknown")}): {exc}')
-    result = {'offers': output}
+    catalog = json.loads(PRODUCTS.read_text(encoding='utf-8'))['products']
+    products = {}
+    fields = ('store', 'name', 'quantity', 'sourceUrl')
+    for item in catalog + output:
+        if not isinstance(item, dict) or any(
+            not isinstance(item.get(field), str) or not item[field].strip()
+            for field in fields
+        ) or not valid_source(item['sourceUrl']):
+            continue
+        key = tuple(item[field].strip().casefold() for field in fields[:3])
+        products[key] = {field: item[field] for field in fields}
+    result = {'offers': output, 'products': list(products.values())}
     OUTPUT.write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     print(f'Published {len(output)} reviewed offers; {len(data["offers"])-len(output)} excluded')
 
