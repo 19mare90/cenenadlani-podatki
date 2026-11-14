@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'data/reviewed_offers.json'
+      - 'data/products.json'
       - 'scripts/build_prices.py'
       - '.github/workflows/publish-prices.yml'
   schedule:
