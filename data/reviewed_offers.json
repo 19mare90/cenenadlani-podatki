@@ -47,6 +47,38 @@
       "loyalty": "Na strani ponudbe pogoj kartice ni naveden",
       "reviewStatus": "approved",
       "reviewedBy": "Pregled uradne strani Eurospin 13. 11. 2026"
+    },
+    {
+      "id": "lidl-pomarance-20261112",
+      "name": "Pomaranče",
+      "quantity": "2 kg",
+      "price": 2.29,
+      "unitPrice": "1,15 €/kg",
+      "loyalty": "Lidl Plus ni naveden",
+      "store": "Lidl",
+      "region": "Slovenija",
+      "sourceUrl": "https://www.lidl.si/c/super-ponudba-od-cetrtka/a10106935",
+      "reviewStatus": "approved",
+      "reviewedBy": "Pregled uradne ponudbe Lidl",
+      "checkedAt": "2026-11-14",
+      "validFrom": "2026-11-12",
+      "validUntil": "2026-11-18"
+    },
+    {
+      "id": "lidl-kare-20261112",
+      "name": "Svež svinjski kare",
+      "quantity": "1 kg",
+      "price": 3.99,
+      "unitPrice": "3,99 €/kg",
+      "loyalty": "Lidl Plus ni naveden",
+      "store": "Lidl",
+      "region": "Slovenija",
+      "sourceUrl": "https://www.lidl.si/c/super-ponudba-od-cetrtka/a10106935",
+      "reviewStatus": "approved",
+      "reviewedBy": "Pregled uradne ponudbe Lidl",
+      "checkedAt": "2026-11-14",
+      "validFrom": "2026-11-12",
+      "validUntil": "2026-11-18"
     }
   ]
 }
